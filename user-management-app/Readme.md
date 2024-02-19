@@ -10,6 +10,7 @@
 npm init -y
 npm install --save-dev standard-version  (CHANGELOG.md)
 npm install express
+npm install mssql 
 
 
 

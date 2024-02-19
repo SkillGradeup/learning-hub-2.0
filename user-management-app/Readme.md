@@ -66,3 +66,5 @@ git push origin <branch-name>
 npm install swagger-jsdoc swagger-ui-express glob
 or
 npm install glob
+
+[text](http://localhost:5000/api-docs/)

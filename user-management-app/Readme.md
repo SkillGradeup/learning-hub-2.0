@@ -41,6 +41,7 @@ npm install --save-dev nodemon
 node server.js
 
 ## How to start sever with nodemon
+
 npm start
     or
 npm run dev
@@ -64,7 +65,9 @@ git push origin <branch-name>
 ## Swagger configuration
 
 npm install swagger-jsdoc swagger-ui-express glob
+
 or
+
 npm install glob
 
-[text](http://localhost:5000/api-docs/)
+api-doc [link](http://localhost:5000/api-docs/)

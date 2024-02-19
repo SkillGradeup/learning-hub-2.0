@@ -26,7 +26,9 @@ npm install dotenv
 
 npm install cors
 
-npm install swagger-jsdoc swagger-ui-express
+npm install swagger-jsdoc swagger-ui-express glob
+or
+npm install glob
 
 
 ## nodemon for server changes
@@ -60,4 +62,7 @@ git push origin <branch-name>
 
 
 ## Swagger configuration
-npm install swagger-jsdoc swagger-ui-express
+
+npm install swagger-jsdoc swagger-ui-express glob
+or
+npm install glob

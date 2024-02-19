@@ -1,6 +1,6 @@
 {
   "name": "uma-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.4",
     "express": "^4.18.2",
+    "glob": "^10.3.10",
     "mssql": "^10.0.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"

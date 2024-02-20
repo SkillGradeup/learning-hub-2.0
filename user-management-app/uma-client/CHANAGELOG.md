@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - added tailwindcss
 
 ## [0.1.0] - 2024-02-21
-- Initial react js project setup
-- Created basic folder structure
 
+- Initial react js project setup
+
+- Created basic folder structure

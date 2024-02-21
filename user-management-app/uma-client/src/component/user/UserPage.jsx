@@ -13,7 +13,7 @@ const UserPage = () => {
   };
 
   return (
-    <div>
+    <div className="mx-2">
       <h1>User Details Form</h1>
       <UserDetailForm initialValues={initialValues} onSubmit={handleSubmit} />
     </div>

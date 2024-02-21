@@ -1,7 +1,4 @@
-// UserDetailsPage.jsx
-import React from "react";
-import UserDetailsForm from "./UserDetailsForm";
-
+import UserDetailForm from "./UserDetailForm";
 const UserPage = () => {
   const handleSubmit = (values) => {
     // Handle form submission here, e.g., send data to the server
@@ -18,7 +15,7 @@ const UserPage = () => {
   return (
     <div>
       <h1>User Details Form</h1>
-      <UserDetailsForm initialValues={initialValues} onSubmit={handleSubmit} />
+      <UserDetailForm initialValues={initialValues} onSubmit={handleSubmit} />
     </div>
   );
 };

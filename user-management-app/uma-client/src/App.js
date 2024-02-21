@@ -1,11 +1,13 @@
-import AppHeader from "./component/Header/AppHeader";
-import UserDetailsPage from "./component/user/UserPage";
+
+import AppHeader from "./component/header/AppHeader";
+import UserPage from "./component/user/UserPage";
 
 function App() {
   return (
     <div className="container">
-      <AppHeader />
-	  <UserDetailsPage/>
+      <AppHeader/>
+      <UserPage/>
+      
     </div>
   );
 }

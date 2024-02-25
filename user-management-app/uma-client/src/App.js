@@ -1,34 +1,19 @@
-import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import LoginForm from "./component/login/LoginForm";
-import AppHeader from "./component/header/AppHeader";
+/*App.js*/
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./component/login/Login";
+import Home from "./component/app/Home"
+import PrivateRoute from "./PrivateRoute";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogin = (status) => {
-    setIsLoggedIn(status);
-  };
-
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            isLoggedIn ? (
-              <Navigate to="/admin" />
-            ) : (
-              <LoginForm onLogin={handleLogin} />
-            )
-          }
-        />
-        <Route path="/admin" element={<AppHeader />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/home" element={<Home />} />
+        </Route>
+        {/* Route for login form */}
+        <Route element={<Login />} path="/"></Route>
       </Routes>
     </Router>
   );

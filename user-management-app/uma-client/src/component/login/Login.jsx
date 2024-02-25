@@ -1,24 +1,29 @@
+/*Login.jsx*/
 import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
+import { useNavigate } from "react-router-dom";
 
-const LoginForm = ({ onLogin }) => {
-  const onFinish = async (values) => {
+const LoginForm = () => {
+  const navigate = useNavigate();
+
+  const onFinish = (values) => {
     const { username, password } = values;
 
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Simulate API response based on username and password
+    // Simulate checking credentials
     if (username === "admin" && password === "admin") {
-      // Simulate successful login
-      onLogin(true);
+      // Set auth to true upon successful login
+      // Navigate to the admin dashboard
+      navigate("/home");
+      // Call the onLogin function to indicate successful login
+   
     } else {
-      // Simulate failed login
+      // Display error message for invalid credentials
       console.log("Invalid username or password");
     }
   };
 
   const onFinishFailed = (errorInfo) => {
+    // Handle form submission failure
     console.log("Failed:", errorInfo);
   };
 
@@ -49,7 +54,7 @@ const LoginForm = ({ onLogin }) => {
             },
           ]}
         >
-          <Input />
+          <Input aria-label="Username" />
         </Form.Item>
 
         <Form.Item
@@ -62,7 +67,7 @@ const LoginForm = ({ onLogin }) => {
             },
           ]}
         >
-          <Input.Password />
+          <Input.Password aria-label="Password" />
         </Form.Item>
 
         <Form.Item

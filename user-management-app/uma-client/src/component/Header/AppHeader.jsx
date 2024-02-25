@@ -1,6 +1,8 @@
+/*AppHeader.jsx*/
 import React from "react";
-
 import { PageHeader, Avatar, Typography, Space } from "antd";
+import Portfolio from "../portfolio/Portfolio";
+import { Link } from "react-router-dom";
 import "./AppHeader.css";
 const { Text } = Typography;
 const AppHeader = () => {
@@ -18,7 +20,11 @@ const AppHeader = () => {
             </Space>
           </Text>
           <Space>
-            <Avatar src="images/hanuman.jpg" size="large" />
+            <Link to="/portfolio">
+              <Avatar src="images/hanuman.jpg" size="large">
+                <Portfolio />
+              </Avatar>
+            </Link>
           </Space>
         </>,
       ]}

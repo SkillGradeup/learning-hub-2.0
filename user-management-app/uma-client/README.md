@@ -44,3 +44,6 @@
 - git rm --cached package-lock.json
 
 - git commit -m "ignore package-lock.json in github commit"
+
+### reactjs dependencies
+- npm install react-router-dom

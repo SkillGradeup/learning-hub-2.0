@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import LoginForm from "./component/login/LoginForm";
 import AppHeader from "./component/header/AppHeader";
-import UserPage from "./component/user/UserPage";
-import { Layout } from "antd";
-function App() {
+
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = (status) => {
+    setIsLoggedIn(status);
+  };
+
   return (
-    <Layout>
-      <AppHeader />
-      <UserPage />
-    </Layout>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <Navigate to="/admin" />
+            ) : (
+              <LoginForm onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route path="/admin" element={<AppHeader />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

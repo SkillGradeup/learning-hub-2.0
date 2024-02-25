@@ -1,0 +1,3 @@
+.user-name .fl-name {
+    @apply gap-0 leading-none !important;
+}

@@ -6,7 +6,7 @@ const User = require("../modal/user/User");
 //Fetch all users
 async function getUsers() {
   try {
-    const pool = await sql.connect(dbConfig);
+    const pool = sql.connect(dbConfig);
     const result = await pool.request().query("SELECT * FROM users");
 
     // Map SQL result to User objects
@@ -19,11 +19,9 @@ async function getUsers() {
 //Get by UserId
 async function getUserById(userId) {
   try {
-    const pool = await sql.connect(dbConfig);
-    const result = await pool
-      .request()
-      .query(`SELECT * FROM users WHERE UserID = ${userId}`);
-
+    const pool = sql.connect(dbConfig);
+    const sqlString = `SELECT * FROM users WHERE UserID = ${userId}`;
+    const result = await pool.request().query(sqlString);
     return result.recordset[0]; // Assuming ID is unique, so return the first result
   } catch (error) {
     console.error(
@@ -37,7 +35,7 @@ async function getUserById(userId) {
 // Create a new user
 async function createUser(userData) {
   try {
-    const pool = await sql.connect(dbConfig);
+    const pool = sql.connect(dbConfig);
     await pool.request()
       .query(`INSERT INTO users (user_first_name, user_last_name, dob, status)
       VALUES('${userData.user_first_name}', '${userData.user_last_name}', '${userData.dob}', '${userData.status}');`);
@@ -52,7 +50,7 @@ async function createUser(userData) {
 
 async function updateUser(userId, userData) {
   try {
-    const pool = await sql.connect(dbConfig);
+    const pool = sql.connect(dbConfig);
     await pool.request().query(`UPDATE users 
               SET user_first_name = '${userData.user_first_name}', 
                   user_last_name = '${userData.user_last_name}', 
@@ -74,7 +72,7 @@ async function updateUser(userId, userData) {
 
 async function deleteUser(userId) {
   try {
-    const pool = await sql.connect(dbConfig);
+    const pool = sql.connect(dbConfig);
     const result = await pool.request().query(`DELETE FROM users WHERE UserID = ${userId}`);
 
     // Check if any rows were affected by the delete operation

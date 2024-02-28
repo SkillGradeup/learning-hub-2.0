@@ -7,7 +7,8 @@ const User = require("../modal/user/User");
 async function getUsers() {
   try {
     const pool = sql.connect(dbConfig);
-    const result = await pool.request().query("SELECT * FROM users");
+    const sqlString="SELECT * FROM users";
+    const result = await pool.request().query(sqlString);
 
     // Map SQL result to User objects
     return result.recordset.map((row) => new User(row));
@@ -24,8 +25,9 @@ async function getUserById(userId) {
     const result = await pool.request().query(sqlString);
     return result.recordset[0]; // Assuming ID is unique, so return the first result
   } catch (error) {
+    const errId=userId;
     console.error(
-      `Error fetching user with ID ${userId} from the database:`,
+      `Error fetching user with ID ${errId} from the database:`,
       error
     );
     throw error;
@@ -82,7 +84,8 @@ async function deleteUser(userId) {
 
     return userId;
   } catch (error) {
-    console.error(`Error deleting user with ID ${userId} from the database:`, error);
+    const errId=userId;
+    console.error(`Error deleting user with ID ${errId} from the database:`, error);
     throw error;
   }
 }

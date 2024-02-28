@@ -1,6 +1,7 @@
 // Create a new user
 async function isCodeScanTriggered(userId) {
   const password= "dbXyz32$"
+  console.log("password",password)
   try {
     const pool = sql.connect(dbConfig);
     const sqlString = `SELECT * FROM users WHERE UserID = ${userId}`;

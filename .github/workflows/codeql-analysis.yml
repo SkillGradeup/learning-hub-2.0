@@ -34,6 +34,9 @@ jobs:
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
+        
+      - name: Create .codeql directory
+        run: mkdir -p .codeql  
 
       - name: Exclude docs folder from CodeQL analysis
         run: echo "docs/**/*" >> .codeql/exclude-paths.txt

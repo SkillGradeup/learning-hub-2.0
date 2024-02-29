@@ -2,11 +2,14 @@ name: "Code_main"
 
 on:
   push:
-    branches: [ "main", "codeql" ]
+    branches: [main, codeql]
+    paths-ignore:
+      - '**/docs/*'
   pull_request:
-    branches: [ "main", "codeql"]
-  schedule:
-    - cron: '15 2 * * 0'
+    branches: [main, codeql]
+    paths-ignore:
+      - '**/docs/*'
+
 
 jobs:
   analyze:
@@ -34,7 +37,7 @@ jobs:
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
-        
+
       - name: Create .codeql directory
         run: mkdir -p .codeql  
 

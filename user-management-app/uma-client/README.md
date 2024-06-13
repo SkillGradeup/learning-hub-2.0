@@ -47,3 +47,11 @@
 
 ### reactjs dependencies
 - npm install react-router-dom
+
+### How to start app
+[cd uma-client - npm start]
+[cd uma-server - npm run dev]
+
+### APP URL
+[front-end - http://localhost:3000]
+[swagger - http://localhost:5000/api-docs]
